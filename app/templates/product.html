@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{product.name}}{% endblock %}
+
+{% block style %}
+<style>
+	.card img {
+		object-fit: contain;
+		width: 100%;
+		height: 500px;
+	}
+
+	.card {
+		width: 900px;
+		margin: auto;
+	}
+
+	.card-body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.product-bottom {
+		margin-top: auto;
+		display: flex;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+{% include 'includes/product_card.html' %}
+{% endblock %}

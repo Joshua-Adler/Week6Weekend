@@ -1,0 +1,22 @@
+<div class="card">
+	<img src="{{product.image}}" class="card-img-top" alt="img">
+	<div class="card-body">
+		<h5 class="card-title">{{product.name}}</h5>
+		{% if main_view %}
+			<p class="card-text">{{product.description}}</p>
+		{% endif %}
+		<div class="product-bottom">
+			{% if main_view %}
+				<a href="{{url_for('main.add_to_cart', id=product.id)}}" class="btn btn-primary">Add to Cart</a>
+				<a href="{{url_for('main.go_back', amt=2)}}" class="btn btn-secondary" style="margin-left: 16px">Back</a>
+			{% else %}
+				<a href="{{url_for('main.product', id=product.id)}}" class="btn btn-primary">View</a>
+				{% if cart_view %}
+					<a href="{{url_for('main.remove_from_cart', id=product.cart_id)}}" class="btn btn-danger" style="margin-left: 16px">Remove</a>
+				{% endif %}
+			{% endif %}
+			<p class="card-text text-success" style="margin: auto 0 auto auto">${{"{:,.2f}".format(product.price /
+				100)}}</p>
+		</div>
+	</div>
+</div>
